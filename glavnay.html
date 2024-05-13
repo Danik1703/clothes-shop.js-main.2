@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>My Shop</title>
+</head>
+<body>
+  <header id="home">
+    <div class="logo" id="home">
+      <a href="#">
+        <img src="foto/logo3.png" alt="">
+      </a>
+      
+      <div class="menu-container">
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li class="menu-item-has-children">
+              <a href="#shop">Shop</a>
+                <ul class="sub-menu">
+                  <li><a href="/t-shirts/tshirts.html" onclick="openNewWindow('/t-shirts/tshirts.html')">T-Shirts</a></li>
+                  <li><a href="/jackets/jackets.html" onclick="openNewWindow('/jackets/jackets.html')">Jackets</a></li>
+                  <li><a href="/pants/pants.html" onclick="openNewWindow('/pants/pants.html')">Pants</a></li>
+                </ul>
+            </li>
+            <li><a href="#contact">Contact-Us</a></li>
+            <li><a href="#cart" onclick="openCart()"><span class="cart-icon"></span></a></li>
+          </ul>
+        </nav>
+      </div>
+      
+    
+    <div id="cart-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeCart()">&times;</span>
+        <h1>Корзина</h1> 
+        <div id="cart-items" class="cart"></div>
+        <div id="payment-form">
+          <input type="text" placeholder="Имя" id="name-input">
+          <input type="text" placeholder="Адрес" id="address-input">
+          <input type="text" placeholder="Номер карты" id="name-input">
+          <input type="text" placeholder="СVV код" id="address-input">
+          <button onclick="processPayment()">Оплатить</button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="payment-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closePaymentModal()">&times;</span>
+        <h2>Оплата товара</h2>
+        <div id="payment-items"></div>
+      </div>
+    </div>
+    
+ 
+  </header>
+  <main>
+    <section class="banner">
+      <div class="slider">
+        <div class="slide">
+          <img src="foto/glavnoe-bg.jpg" alt="Slide 1">
+        </div>
+        <div class="slide">
+          <img src="foto/galary.jpg" alt="Slide 3">
+        </div>
+        <div class="slide">
+          <img src="foto/galary-bg2.jpg" alt="Slide 2">
+        </div>
+        <div class="slide">
+          <img src="foto/galary-bg3.jpg" alt="Slide 4">
+        </div>
+        <div class="slide">
+          <img src="foto/galary-bg4.jpg" alt="Slide 5">
+        </div>
+        <div class="slide">
+          <img src="foto/bg6.jpg" alt="Slide 6">
+        </div>
+        <div class="slide">
+          <img src="foto/bg7.jpg" alt="Slide 7">
+        </div>
+        <div class="navigation">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span>
+          <span class="dot" onclick="currentSlide(6)"></span>
+          <span class="dot" onclick="currentSlide(7)"></span>
+        </div>
+      </div>
+    </section>      
+    <section class="featured-products" id="Shop">
+      <div class="product-card">
+        <img src="foto/black.jpg" alt="Product">
+        <h3>Футболка Premium</h3>
+        <p>$19.99</p>
+        <div class="cart-actions">
+          <button class="add-to-cart-btn" onclick="addToCart(this)">Добавить в корзину</button>
+          <button class="add-to-cart-btn" onclick="addToCart(this)">+</button>
+          <span class="quantity">0</span>
+          <button class="remove-from-cart-btn" onclick="removeFromCart(this)">-</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="foto/photo2jpg.jpg" alt="Product">
+        <h3>Трикотажная футболка</h3>
+        <p>$24.99</p>
+        <div class="cart-actions">
+          <button class="add-to-cart-btn" onclick="addToCart(this)">Добавить в корзину</button>
+          <button class="add-to-cart-btn" onclick="addToCart(this)">+</button>
+          <span class="quantity">0</span>
+          <button class="remove-from-cart-btn" onclick="removeFromCart(this)">-</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="foto/photo3.jpg" alt="Product">
+        <h3>Штаны-уоркер с карманами</h3>
+        <p>$34.99</p>
+        <div class="cart-actions">
+          <button class="add-to-cart-btn" onclick="addToCart(this)">Добавить в корзину</button>
+          <button class="add-to-cart-btn" onclick="addToCart(this)">+</button>
+          <span class="quantity">0</span>
+          <button class="remove-from-cart-btn" onclick="removeFromCart(this)">-</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="foto/photo4.jpg" alt="Product">
+        <h3>Костюм</h3>
+        <p>$35.99</p>
+        <div class="cart-actions">
+          <button class="add-to-cart-btn" onclick="addToCart(this)">Добавить в корзину</button>
+          <button class="add-to-cart-btn" onclick="addToCart(this)">+</button>
+          <span class="quantity">0</span>
+          <button class="remove-from-cart-btn" onclick="removeFromCart(this)">-</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="foto/photo5.jpg" alt="Product">
+        <h3>Водо відштовхуючий Тренч</h3>
+        <p>$38.99</p>
+        <div class="cart-actions">
+          <button class="add-to-cart-btn" onclick="addToCart(this)">Добавить в корзину</button>
+          <button class="add-to-cart-btn" onclick="addToCart(this)">+</button>
+          <span class="quantity">0</span>
+          <button class="remove-from-cart-btn" onclick="removeFromCart(this)">-</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="foto/photo7.jpg" alt="Product">
+        <h3>Бавовняна сорочка з кишенею</h3>
+        <p>$27.99</p>
+        <div class="cart-actions">
+          <button class="add-to-cart-btn" onclick="addToCart(this)">Добавить в корзину</button>
+          <button class="add-to-cart-btn" onclick="addToCart(this)">+</button>
+          <span class="quantity">0</span>
+          <button class="remove-from-cart-btn" onclick="removeFromCart(this)">-</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="foto/photo8.jpg" alt="Product">
+        <h3>Шкіряні шорти</h3>
+        <p>$19.99</p>
+        <div class="cart-actions">
+          <button class="add-to-cart-btn" onclick="addToCart(this)">Добавить в корзину</button>
+          <button class="add-to-cart-btn" onclick="addToCart(this)">+</button>
+          <span class="quantity">0</span>
+          <button class="remove-from-cart-btn" onclick="removeFromCart(this)">-</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="foto/photo9.jpg" alt="Product">
+        <h3>Бавовняно-льяна куртка</h3>
+        <p>$44.99</p>
+        <div class="cart-actions">
+          <button class="add-to-cart-btn" onclick="addToCart(this)">Добавить в корзину</button>
+          <button class="add-to-cart-btn" onclick="addToCart(this)">+</button>
+          <span class="quantity">0</span>
+          <button class="remove-from-cart-btn" onclick="removeFromCart(this)">-</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="foto/photo6.jpg" alt="Product">
+        <h3>Гаманець</h3>
+        <p>$14.99</p>
+        <div class="cart-actions">
+          <button class="add-to-cart-btn" onclick="addToCart(this)">Добавить в корзину</button>
+          <button class="add-to-cart-btn" onclick="addToCart(this)">+</button>
+          <span class="quantity">0</span>
+          <button class="remove-from-cart-btn" onclick="removeFromCart(this)">-</button>
+        </div>
+      </div>
+      <div class="cart-message" id="cartMessage">
+        <img src="foto/checkmark1.png" alt="Галочка">
+        Товар добавлен в корзину
+      </div>        
+    </section>
+  </main>
+
+    <footer id="contact">
+      <div class="social-media-icons">
+        <a href="https://www.facebook.com/login/"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/?lang=ru"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+      </div>
+      <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="foto/arrow.png" alt="Arrow icon"></button>
+    </footer>      
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="app.js"></script>
+    
+</body>
+</html>
